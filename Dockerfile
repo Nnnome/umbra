@@ -13,7 +13,7 @@ RUN python3.8 -m pip install \
         "docker<=4.1.0" \
         "prompt_toolkit<=3.0.6" \
         "paramiko<=2.6.0" \
-        "scp<=0.13.2"
+        "scp<=0.13.2" 
 
 RUN mkdir -p /umbra
 

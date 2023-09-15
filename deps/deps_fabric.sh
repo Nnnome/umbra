@@ -50,7 +50,7 @@ installRequirementsFabric() {
   mkdir git
   git clone https://github.com/hyperledger/fabric-sdk-py git/fabric-sdk-py
   cd git/fabric-sdk-py
-  sudo python3.8 -m pip install .
+  sudo /home/nome/Iass/anaconda3/envs/umbra/bin/python3.8  -m pip install .
   # sudo python3.8 setup.py install
   cd - 
 }
@@ -190,7 +190,7 @@ function uninstall() {
   # sudo apt remove python3-dev libssl-dev
 
   cd git/fabric-sdk-py
-  sudo python3.8 -m pip uninstall -y .
+  sudo /home/nome/Iass/anaconda3/envs/umbra/bin/python3.8 -m pip uninstall -y .
   cd - 
   sudo rm -R git/fabric-sdk-py
 

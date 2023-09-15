@@ -41,7 +41,7 @@ vagrant-requirements-libvirt:
 	vagrant plugin install vagrant-libvirt
 
 requirements:
-	sudo apt update && sudo apt install -y git python3.8 python3-setuptools python3-pip
+	sudo apt update && sudo apt install -y git  python3-setuptools python3-pip
 	mkdir -p /tmp/umbra
 	mkdir -p /tmp/umbra/logs
 	mkdir -p /tmp/umbra/source
@@ -53,14 +53,14 @@ uninstall-deps:
 	sh -c "cd $(DEPS_FOLDER) && ./$(DEPS) uninstall && cd - "
     
 install: requirements install-deps
-	sudo /usr/bin/python3.8 setup.py develop
+	sudo /home/nome/Iass/anaconda3/envs/umbra/bin/python3.8 setup.py develop
 	# sudo /usr/bin/python3.8 -m pip install .
 
 develop: requirements
-	sudo /usr/bin/python3.8 setup.py develop
+	sudo /home/nome/Iass/anaconda3/envs/umbra/bin/python3.8 setup.py develop
 
 uninstall:
-	sudo /usr/bin/python3.8 -m pip uninstall -y umbra
+	sudo /home/nome/Iass/anaconda3/envs/umbra/bin/python3.8 -m pip uninstall -y umbra
     
 clean-pyc:
 	sudo sh -c "find . -name '*.pyc' -exec rm --force {} + "

@@ -1,5 +1,6 @@
 #!/bin/bash 
-
+export http_proxy='http://192.168.3.114:7890'
+export https_proxy='http://192.168.3.114:7890'
 COMMAND=$1
 
 function printHelp() {
@@ -20,13 +21,13 @@ function install() {
     echo "###################################"
 
     sudo apt update && sudo apt install -y curl wget ansible git aptitude python3-pip
-    sudo python3.8 -m pip install -U "docker<=4.1.0" cffi pexpect
+    sudo /home/nome/Iass/anaconda3/envs/umbra/bin/python3.8  -m pip install -U "docker<=4.1.0" cffi pexpect
 
-    git clone https://github.com/raphaelvrosa/containernet git/containernet
+    git clone https://github.com/containernet/containernet git/containernet
     cd git/containernet/ansible
     sudo ansible-playbook -i "localhost," -c local install.yml
     cd ..
-    sudo python3.8 -m pip install .
+    sudo /home/nome/Iass/anaconda3/envs/umbra/bin/python3.8  -m pip install .
     cd ..
 
     # sudo usermod -aG docker $USER
@@ -49,7 +50,7 @@ function uninstall() {
     cd containernet/ansible
     sudo ansible-playbook -i "localhost," -c local install.yml
     cd ..
-    sudo python3.8 -m pip uninstall -y .
+    sudo /home/nome/Iass/anaconda3/envs/umbra/bin/python3.8 -m pip uninstall -y .
     cd ..
 
     # sudo apt update && sudo apt remove -y curl wget ansible git aptitude
